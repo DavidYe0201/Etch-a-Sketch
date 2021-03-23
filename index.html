@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<title>etch-a-sketch</title>
 <style>
 
 .container
@@ -18,38 +19,58 @@
     justify-content: center;
 }
 
-orange
-{
-    background-color: white;
 
-}
-orange:hover{
-    background-color: black;
-}
 </style>
 
 <body>
     <div class='container'></div>
+    <button onclick ="clearGrid()">Clear</button>
+    <button onclick ="changeSize()">Size</button>
+
 </body>
 
 
 <script>
-var grid = document.querySelector(".container");
+const n = 16;
 
-for (var x = 0; x < 16; x++)
+function changeSize()
+{
+    var n = prompt("Size between 1 and 64");
+    console.log(n);
+}
+
+var grid = document.querySelector(".container");
+for (var x = 0; x < n; x++)
 {
     var oneSquare = document.createElement("apple");
     oneSquare.className = "oneSquare";
+
     grid.appendChild(oneSquare).className = "gridRow";
-        for (var y = 0; y < 16; y++)
+        for (var y = 0; y < n; y++)
         {
-            var twoSquare = document.createElement("orange");
+            var twoSquare = document.createElement("div");
             twoSquare.style.border = "solid #000000";
             twoSquare.style.width = "40px";
+            twoSquare.style.background = "white";
+            twoSquare.className = "singleGrid";
+            twoSquare.addEventListener("mouseover", func)
             oneSquare.appendChild(twoSquare);
         }
 }
 
+function func(a)
+{
+    a.target.style.background = "black";
+}
+
+function clearGrid()
+{
+    for (var x = 0; x < 16; x++)
+    {
+        console.log("help");
+        grid.style.background = "white";
+    }
+}
 
 
 
