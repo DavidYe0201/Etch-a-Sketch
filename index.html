@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+.container
+{
+    display: grid;
+    grid-column-gap: 50px;
+    height: 600px;
+    width: 600px;
+    border-style: solid;
+
+}
+.gridRow
+{
+    width: 600px;
+    display:flex;
+    justify-content: center;
+}
+
+orange
+{
+    background-color: white;
+
+}
+orange:hover{
+    background-color: black;
+}
+</style>
+
+<body>
+    <div class='container'></div>
+</body>
+
+
+<script>
+var grid = document.querySelector(".container");
+
+for (var x = 0; x < 16; x++)
+{
+    var oneSquare = document.createElement("apple");
+    oneSquare.className = "oneSquare";
+    grid.appendChild(oneSquare).className = "gridRow";
+        for (var y = 0; y < 16; y++)
+        {
+            var twoSquare = document.createElement("orange");
+            twoSquare.style.border = "solid #000000";
+            twoSquare.style.width = "40px";
+            oneSquare.appendChild(twoSquare);
+        }
+}
+
+
+
+
+</script>
+</html>
