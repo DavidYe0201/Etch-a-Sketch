@@ -32,17 +32,43 @@
 
 <script>
 const n = 16;
+console.log(document.querySelector(".container"));
+var grid = document.querySelector(".container");
+for (var x = 0; x < n; x++)
+{
+    var oneSquare = document.createElement("div");
+    oneSquare.className = "oneSquare";
+
+    grid.appendChild(oneSquare).className = "gridRow";
+        for (var y = 0; y < n; y++)
+        {
+            var twoSquare = document.createElement("div");
+            twoSquare.style.border = "solid #000000";
+            twoSquare.style.width = "600px";
+            twoSquare.style.background = "white";
+            twoSquare.className = "singleGrid";
+            twoSquare.addEventListener("mouseover", func)
+            oneSquare.appendChild(twoSquare);
+        }
+}
+console.log(document.querySelector(".container"));
+
+
+function func(a)
+{
+    a.target.style.background = "black";
+}
 
 function changeSize()
 {
     var n = prompt("Size between 1 and 64");
-    
-}
+    console.log(document.querySelector(".container"));
+    const elements = document.getElementsByClassName("gridRow");
+    while (elements.length > 0) elements[0].remove();
 
-var grid = document.querySelector(".container");
-for (var x = 0; x < n; x++)
+    for (var x = 0; x < n; x++)
 {
-    var oneSquare = document.createElement("apple");
+    var oneSquare = document.createElement("div");
     oneSquare.className = "oneSquare";
 
     grid.appendChild(oneSquare).className = "gridRow";
@@ -58,9 +84,7 @@ for (var x = 0; x < n; x++)
         }
 }
 
-function func(a)
-{
-    a.target.style.background = "black";
+
 }
 
 function clearGrid()
