@@ -2,28 +2,39 @@
 <html>
 <title>etch-a-sketch</title>
 <style>
+h1 
+{
+    text-align: center;
+}
 
+body
+{
+    text-align: center;
+}
 .container
 {
+    margin: auto;
+  width: 50%;
     display: grid;
-    grid-column-gap: 50px;
+    grid-column-gap: 40px;
     height: 600px;
     width: 600px;
     border-style: solid;
-
 }
 .gridRow
 {
     width: 600px;
     display:flex;
-    justify-content: center;
 }
 
 
 </style>
 
 <body>
+    <h1>Etch-a-Sketch!</h1>
+
     <div class='container'></div>
+    <br>
     <button onclick ="clearGrid()">Clear</button>
     <button onclick ="changeSize()">Size</button>
 
