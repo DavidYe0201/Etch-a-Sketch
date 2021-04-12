@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
-<title>etch-a-sketch</title>
+<title>Etch-a-sketch</title>
 <style>
 h1 
 {
     text-align: center;
 }
-
 body
 {
     text-align: center;
@@ -14,7 +13,7 @@ body
 .container
 {
     margin: auto;
-  width: 50%;
+    width: 50%;
     display: grid;
     grid-column-gap: 40px;
     height: 600px;
@@ -27,9 +26,7 @@ body
     display:flex;
 }
 
-
 </style>
-
 <body>
     <h1>Etch-a-Sketch!</h1>
 
@@ -39,7 +36,6 @@ body
     <button onclick ="changeSize()">Size</button>
 
 </body>
-
 
 <script>
 const n = 16;
@@ -54,7 +50,7 @@ for (var x = 0; x < n; x++)
         for (var y = 0; y < n; y++)
         {
             var twoSquare = document.createElement("div");
-            twoSquare.style.border = "solid #000000";
+            twoSquare.style.border = "1px solid #000000";
             twoSquare.style.width = "600px";
             twoSquare.style.background = "white";
             twoSquare.className = "singleGrid";
@@ -62,17 +58,29 @@ for (var x = 0; x < n; x++)
             oneSquare.appendChild(twoSquare);
         }
 }
-console.log(document.querySelector(".container"));
-
 
 function func(a)
 {
     a.target.style.background = "black";
 }
 
+function checkPrompt(n)
+{
+    if (n >= 1 && n <= 64)
+    {
+        return n;
+    }
+    else
+    {
+        n = prompt("Your size did not work! Please choose between 1 and 64!");
+        checkPrompt(n);
+    }
+}
+
 function changeSize()
 {
     var n = prompt("Size between 1 and 64");
+    checkPrompt(n);
     console.log(document.querySelector(".container"));
     const elements = document.getElementsByClassName("gridRow");
     while (elements.length > 0) elements[0].remove();
@@ -81,12 +89,11 @@ function changeSize()
 {
     var oneSquare = document.createElement("div");
     oneSquare.className = "oneSquare";
-
     grid.appendChild(oneSquare).className = "gridRow";
         for (var y = 0; y < n; y++)
         {
             var twoSquare = document.createElement("div");
-            twoSquare.style.border = "solid #000000";
+            twoSquare.style.border = "1px solid #000000";
             twoSquare.style.width = "600px";
             twoSquare.style.background = "white";
             twoSquare.className = "singleGrid";
@@ -94,16 +101,12 @@ function changeSize()
             oneSquare.appendChild(twoSquare);
         }
 }
-
-
 }
 
 function clearGrid()
 {
     document.querySelectorAll(".singleGrid").forEach(grid => {grid.style.background = "white"});
 }
-
-
 
 </script>
 </html>
