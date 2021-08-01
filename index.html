@@ -1,112 +1,17 @@
 <!DOCTYPE html>
 <html>
 <title>Etch-a-sketch</title>
-<style>
-h1 
-{
-    text-align: center;
-}
-body
-{
-    text-align: center;
-}
-.container
-{
-    margin: auto;
-    width: 50%;
-    display: grid;
-    grid-column-gap: 40px;
-    height: 600px;
-    width: 600px;
-    border-style: solid;
-}
-.gridRow
-{
-    width: 600px;
-    display:flex;
-}
-
-</style>
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
     <h1>Etch-a-Sketch!</h1>
 
-    <div class='container'></div>
+    <div class ='container'></div>
     <br>
-    <button onclick ="clearGrid()">Clear</button>
-    <button onclick ="changeSize()">Size</button>
-
+    <button onclick = "clearGrid()">Clear</button>
+    <button onclick = "changeSize()">Resize</button>
+    <script src="main.js"></script>
 </body>
 
-<script>
-const n = 16;
-console.log(document.querySelector(".container"));
-var grid = document.querySelector(".container");
-for (var x = 0; x < n; x++)
-{
-    var oneSquare = document.createElement("div");
-    oneSquare.className = "oneSquare";
-
-    grid.appendChild(oneSquare).className = "gridRow";
-        for (var y = 0; y < n; y++)
-        {
-            var twoSquare = document.createElement("div");
-            twoSquare.style.border = "1px solid #000000";
-            twoSquare.style.width = "600px";
-            twoSquare.style.background = "white";
-            twoSquare.className = "singleGrid";
-            twoSquare.addEventListener("mouseover", func)
-            oneSquare.appendChild(twoSquare);
-        }
-}
-
-function func(a)
-{
-    a.target.style.background = "black";
-}
-
-function checkPrompt(n)
-{
-    if (n >= 1 && n <= 64)
-    {
-        return n;
-    }
-    else
-    {
-        n = prompt("Your size did not work! Please choose between 1 and 64!");
-        checkPrompt(n);
-    }
-}
-
-function changeSize()
-{
-    var n = prompt("Size between 1 and 64");
-    checkPrompt(n);
-    console.log(document.querySelector(".container"));
-    const elements = document.getElementsByClassName("gridRow");
-    while (elements.length > 0) elements[0].remove();
-
-    for (var x = 0; x < n; x++)
-{
-    var oneSquare = document.createElement("div");
-    oneSquare.className = "oneSquare";
-    grid.appendChild(oneSquare).className = "gridRow";
-        for (var y = 0; y < n; y++)
-        {
-            var twoSquare = document.createElement("div");
-            twoSquare.style.border = "1px solid #000000";
-            twoSquare.style.width = "600px";
-            twoSquare.style.background = "white";
-            twoSquare.className = "singleGrid";
-            twoSquare.addEventListener("mouseover", func)
-            oneSquare.appendChild(twoSquare);
-        }
-}
-}
-
-function clearGrid()
-{
-    document.querySelectorAll(".singleGrid").forEach(grid => {grid.style.background = "white"});
-}
-
-</script>
 </html>

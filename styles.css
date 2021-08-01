@@ -1,0 +1,21 @@
+h1 {
+    text-align: center;
+}
+
+body {
+    text-align: center;
+}
+.container {
+    margin: auto;
+    width: 50%;
+    display: grid;
+    grid-column-gap: 40px;
+    height: 600px;
+    width: 600px;
+    border-style: solid;
+}
+
+.gridRow {
+    width: 600px;
+    display:flex;
+}
